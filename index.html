@@ -4,66 +4,69 @@
 <head>
   <meta charset="UTF-8" />
   <title>Weather App</title>
-  <link rel="stylesheet" type="text/css" href="./assets/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/jass.css">
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
 </head>
 
 <body>
-    <header>Weather Dashboard</header>
-    <sidebar>
-        <form id = "city-form">
-            <h1>Search for a City:</h1>
-            <input type="text" name="city-name" placeholder="San Diego" class="form-input" />
-            <button class="btn">Search</button>
-        </form>
-    </sidebar>
-    <section id = "current">
-        <h1 id="city-name">City Name (Date) ☀️</h1>
- 
-            <div id="currentTemp">Temp: 76.62F</div>
-            <div id="currentWind">Wind: 8.43 MPH</div>
-            <div id="currentHumid">Humidity: 44%</div>
+    <header class="container">Weather Dashboard</header>
+    <main class="container">
+        <sidebar>
+            <form id = "city-form">
+                <h1>Search for a City:</h1>
+                <input type="text" name="city-name" placeholder="San Diego" class="form-input" />
+                <button class="btn">Search</button>
+            </form>
+        </sidebar>
+        <section id = "current">
+            <h1 id="city-name">City Name (Date) ☀️</h1>
     
-    </section>
-    <section id="forecast">
-        <h2>5-Day Forecast</h2>
-        <div class = "day" id="Day1">
-            <h1>Date</h1>
-            <div id="Day1skies"></div>
-            <div id="Day1Temp">Temp: 76.62F</div>
-            <div id="Day1Wind">Wind: 8.43 MPH</div>
-            <div id="Day1Humid">Humidity: 44%</div>
-        </div>
-        <div class = "day" id="Day2">
-            <h1>Date</h1>
-            <div id="Day2skies"></div>
-            <div id="Day2Temp">Temp: 76.62F</div>
-            <div id="Day2Wind">Wind: 8.43 MPH</div>
-            <div id="Day2Humid">Humidity: 44%</div>
-        </div>
-        <div class = "day" id="Day3">
-            <h1>Date</h1>
-            <div id="Day3skies"></div>
-            <div id="Day3Temp">Temp: 76.62F</div>
-            <div id="Day3Wind">Wind: 8.43 MPH</div>
-            <div id="Day3Humid">Humidity: 44%</div>
-        </div>
-        <div class = "day" id="Day4">
-            <h1>Date</h1>
-            <div id="Day4skies"></div>
-            <div id="Day4Temp">Temp: 76.62F</div>
-            <div id="Day4Wind">Wind: 8.43 MPH</div>
-            <div id="Day4Humid">Humidity: 44%</div>
-        </div>
-        <div class = "day" id="Day5">
-            <h1>Date</h1>
-            <div id="Day5skies"></div>
-            <div id="Day5Temp">Temp: 76.62F</div>
-            <div id="Day5Wind">Wind: 8.43 MPH</div>
-            <div id="Day5Humid">Humidity: 44%</div>
-        </div>
-    </section>
-
+                <div id="currentTemp">Temp: 76.62F</div>
+                <div id="currentWind">Wind: 8.43 MPH</div>
+                <div id="currentHumid">Humidity: 44%</div>
+        
+        </section>
+        <section id="forecast">
+            <h2>5-Day Forecast</h2>
+            <div id="days">
+                <div class = "day" id="Day1">
+                    <h1>Date</h1>
+                    <div id="Day1skies"></div>
+                    <div id="Day1Temp">Temp: 76.62F</div>
+                    <div id="Day1Wind">Wind: 8.43 MPH</div>
+                    <div id="Day1Humid">Humidity: 44%</div>
+                </div>
+                <div class = "day" id="Day2">
+                    <h1>Date</h1>
+                    <div id="Day2skies"></div>
+                    <div id="Day2Temp">Temp: 76.62F</div>
+                    <div id="Day2Wind">Wind: 8.43 MPH</div>
+                    <div id="Day2Humid">Humidity: 44%</div>
+                </div>
+                <div class = "day" id="Day3">
+                    <h1>Date</h1>
+                    <div id="Day3skies"></div>
+                    <div id="Day3Temp">Temp: 76.62F</div>
+                    <div id="Day3Wind">Wind: 8.43 MPH</div>
+                    <div id="Day3Humid">Humidity: 44%</div>
+                </div>
+                <div class = "day" id="Day4">
+                    <h1>Date</h1>
+                    <div id="Day4skies"></div>
+                    <div id="Day4Temp">Temp: 76.62F</div>
+                    <div id="Day4Wind">Wind: 8.43 MPH</div>
+                    <div id="Day4Humid">Humidity: 44%</div>
+                </div>
+                <div class = "day" id="Day5">
+                    <h1>Date</h1>
+                    <div id="Day5skies"></div>
+                    <div id="Day5Temp">Temp: 76.62F</div>
+                    <div id="Day5Wind">Wind: 8.43 MPH</div>
+                    <div id="Day5Humid">Humidity: 44%</div>
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src = "/assets/script.js"></script>
 </body>
