@@ -46,4 +46,15 @@ sidebar{
 .day{
     background-color: rgb(44, 44, 147);
     padding: 0 5px 50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+
+.day h1{
+    font-size: 18px;
+}
+
+.day *{
+    color:white;
 }

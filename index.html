@@ -14,7 +14,7 @@
         <sidebar>
             <form id = "city-form">
                 <h1>Search for a City:</h1>
-                <input type="text" name="city-name" placeholder="San Diego" class="form-input" />
+                <input type="text" id="input" name="city-name" placeholder="San Diego" class="form-input"></input>
                 <button class="btn">Search</button>
             </form>
         </sidebar>
@@ -29,7 +29,7 @@
         <section id="forecast">
             <h2>5-Day Forecast</h2>
             <div id="days">
-                <div class = "day" id="Day1">
+                <!-- <div class = "day" id="Day1">
                     <h1>Date</h1>
                     <div id="Day1skies"></div>
                     <div id="Day1Temp">Temp: 76.62F</div>
@@ -63,10 +63,11 @@
                     <div id="Day5Temp">Temp: 76.62F</div>
                     <div id="Day5Wind">Wind: 8.43 MPH</div>
                     <div id="Day5Humid">Humidity: 44%</div>
-                </div>
+                </div> -->
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src = "/assets/script.js"></script>
 </body>
