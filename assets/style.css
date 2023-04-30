@@ -23,12 +23,21 @@ sidebar{
     grid-column-end:1;
     grid-row-start:0;
     grid-row-end:2;
+    display:flex;
+    flex-direction: column;
+    align-items:start;
+}
+
+.btn{
+    width:100%;
+    margin-bottom: 10px;
 }
 
 #current{
     grid-column-start:1;
     grid-column-end:3;
     border: 2px solid;
+    
 }
 
 #forecast{

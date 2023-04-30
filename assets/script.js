@@ -3,6 +3,7 @@
 var formEl = document.getElementById("city-form");
 var nameEl = document.getElementById("city-name");
 var inputEl = document.getElementById("input");
+var sidebarEl = document.querySelector("sidebar");
 var currentTempEl = document.getElementById("currentTemp");
 var currentWindEl = document.getElementById("currentWind");
 var currentHumidEl = document.getElementById("currentHumid");
@@ -11,8 +12,42 @@ var daysEl = document.getElementById("days");
 
 //Functions
 
+function saveSearch(){
+    localStorage.setItem(inputEl.value, true);
+}
+
+function makeHistory(){
+    const items = Object.keys(localStorage);
+    if(items){
+        for(x=0;x<items.length;x++){
+            var history = document.createElement("div");
+            history.setAttribute("style", "text-align:center; border-radius: 5px; padding: 3px 0px; margin:5px 0px;background-color: rgba(151, 151, 151, 0.599); width: 100%; font-size: 22px;");
+            sidebarEl.appendChild(history);
+            history.innerHTML = items[x];
+            history.addEventListener("click", getWeather);
+        }
+    }
+}
+
+function removePrevious(){
+    var dayCards = document.querySelectorAll(".day");
+    for(x=0;x<dayCards.length;x++){
+        dayCards[x].remove();
+    }
+}
+
+
 function getWeather(event){
-    event.preventDefault();
+    if(event.target.className === "btn"){
+        event.preventDefault();
+    } else{
+        inputEl.value = event.target.innerHTML;
+    }
+    
+    if(daysEl.children.length!=0){
+        removePrevious();
+    }
+    
     var city = inputEl.value;
     var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=5&appid=aa78702f90ba6bd4eaacab62858a195d";
 
@@ -39,7 +74,7 @@ function getWeather(event){
             currentWindEl.innerHTML = "Wind: " + days[0].wind.speed + " MPH";
             currentHumidEl.innerHTML = "Humidity: " + days[0].main.humidity + "%";
 
-            for(x=1;x<6;x++){
+            for(x=1;x<days.length;x+=8){
                 var newDay = document.createElement("div");
                 newDay.setAttribute("class", "day");
                 daysEl.appendChild(newDay);
@@ -68,4 +103,6 @@ function getWeather(event){
     })
 }
 
+makeHistory();
+formEl.addEventListener("submit", saveSearch);
 formEl.addEventListener("submit", getWeather);
