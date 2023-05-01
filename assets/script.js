@@ -12,7 +12,20 @@ var daysEl = document.getElementById("days");
 
 //Functions
 
+function addHistory(){
+    const items = Object.keys(localStorage);
+    if(items.includes(inputEl.value)){
+        return;
+    }
+    var history = document.createElement("div");
+    history.setAttribute("style", "text-align:center; border-radius: 5px; padding: 3px 0px; margin:5px 0px;background-color: rgba(151, 151, 151, 0.599); width: 100%; font-size: 22px;");
+    sidebarEl.appendChild(history);
+    history.innerHTML = inputEl.value;
+    history.addEventListener("click", getWeather);
+}
+
 function saveSearch(){
+    addHistory();
     localStorage.setItem(inputEl.value, true);
 }
 
@@ -36,31 +49,41 @@ function removePrevious(){
     }
 }
 
-
 function getWeather(event){
-    if(event.target.className === "btn"){
+    if(event.target.className === "myform"){
         event.preventDefault();
+        console.log("button");
     } else{
         inputEl.value = event.target.innerHTML;
+        console.log("recent");
     }
     
     if(daysEl.children.length!=0){
         removePrevious();
     }
-    
+
     var city = inputEl.value;
     var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=5&appid=aa78702f90ba6bd4eaacab62858a195d";
 
     fetch(cityURL)
     .then(function (response){
         console.log(response);
-        return response.json();
+        if(response.status===200){
+            return response.json();
+        } else{
+            return;
+        }
     })
     .then(function(data){
+        if(data.length===0){
+            console.log(data);
+            return;
+        }
+        console.log(data);
         var long = Number.parseFloat(data[0].lon).toFixed(2);
         var latt = Number.parseFloat(data[0].lat).toFixed(2);
         var weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latt + "&lon=" + long + "&units=imperial&appid=aa78702f90ba6bd4eaacab62858a195d";
-
+        saveSearch();
         fetch(weatherURL)
         .then(function(response2){
             return response2.json();
@@ -104,5 +127,4 @@ function getWeather(event){
 }
 
 makeHistory();
-formEl.addEventListener("submit", saveSearch);
 formEl.addEventListener("submit", getWeather);

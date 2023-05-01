@@ -31,6 +31,8 @@ sidebar{
 .btn{
     width:100%;
     margin-bottom: 10px;
+    color: white;
+    background-color:rgb(27, 27, 92)
 }
 
 #current{
