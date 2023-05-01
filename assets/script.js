@@ -63,7 +63,7 @@ function getWeather(event){
     }
 
     var city = inputEl.value;
-    var cityURL = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=5&appid=aa78702f90ba6bd4eaacab62858a195d";
+    var cityURL = "https://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=5&appid=aa78702f90ba6bd4eaacab62858a195d";
 
     fetch(cityURL)
     .then(function (response){
@@ -82,7 +82,7 @@ function getWeather(event){
         console.log(data);
         var long = Number.parseFloat(data[0].lon).toFixed(2);
         var latt = Number.parseFloat(data[0].lat).toFixed(2);
-        var weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latt + "&lon=" + long + "&units=imperial&appid=aa78702f90ba6bd4eaacab62858a195d";
+        var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latt + "&lon=" + long + "&units=imperial&appid=aa78702f90ba6bd4eaacab62858a195d";
         saveSearch();
         fetch(weatherURL)
         .then(function(response2){
